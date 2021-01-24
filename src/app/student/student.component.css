@@ -1,0 +1,8 @@
+tr {
+  transition: all 300ms;
+}
+
+tr:hover {
+  background-color: rgba(7, 172, 255, 0.568);
+  color: white;
+}
