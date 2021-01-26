@@ -14,7 +14,7 @@ export class StudentComponent implements OnInit {
   selectedStudent: Student = new Student(0, '', '');
   itemsCount: number = 5;
 
-  constructor(private studentService: StudentService, private route: Router) {}
+  constructor(private studentService: StudentService) {}
 
   ngOnInit(): void {
     this.studentService.getAllStudents().subscribe(

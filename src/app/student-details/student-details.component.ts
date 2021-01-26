@@ -16,12 +16,17 @@ export class StudentDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.ar.params.subscribe((a) => {
+    this.ar.params.subscribe((url) => {
       let id;
-      id = a['id'];
-      this.studentService.getStudent(id).subscribe((d) => {
-        this.student = d;
-      });
+      id = url['id'];
+      this.studentService.getStudent(id).subscribe(
+        (student) => {
+          this.student = student;
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
     });
   }
 }

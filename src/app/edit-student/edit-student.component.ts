@@ -17,9 +17,9 @@ export class EditStudentComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.ar.params.subscribe((hamoza) => {
-      this.studentService.getStudent(hamoza['id']).subscribe((d) => {
-        this.student = d;
+    this.ar.params.subscribe((url) => {
+      this.studentService.getStudent(url['id']).subscribe((student) => {
+        this.student = student;
         console.log(this.student);
       });
     });

@@ -19,6 +19,7 @@
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tfoot>
@@ -38,8 +39,8 @@
                             <td>{{item._id}}</td>
                             <td>{{item.Name}}</td>
                             <td class="text-right">
-                                <button type="button" class="btn btn-warning mr-2">Details</button>
-                                <button type="button" class="btn btn-info mr-2">Update</button>
+                                <button type="button" routerLink="{{'/department/edit/'+item._id}}"
+                                    class="btn btn-info mr-2">Update</button>
                                 <button type="button" class="btn btn-danger" data-toggle="modal"
                                     data-target="#modelId">Delete</button>
                             </td>
@@ -59,7 +60,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Delete Confirmation</h5>
-                <button type="button" href="/students" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" routerLink="/students" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>

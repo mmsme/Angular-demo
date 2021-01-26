@@ -15,6 +15,7 @@ import { EditStudentComponent } from './edit-student/edit-student.component';
 import { StudentDetailsComponent } from './student-details/student-details.component';
 import { DepartmentComponent } from './department/department.component';
 import { AddDepartmentComponent } from './add-department/add-department.component';
+import { EditDepartmentComponent } from './edit-department/edit-department.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { AddDepartmentComponent } from './add-department/add-department.componen
     StudentDetailsComponent,
     DepartmentComponent,
     AddDepartmentComponent,
+    EditDepartmentComponent,
   ],
   imports: [
     BrowserModule,

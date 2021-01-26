@@ -27,9 +27,10 @@ export class DepartmentService {
       );
   }
 
-  updateStudnet(id: number, data: any) {
+  updateDepartment(id: number, data: any) {
+    console.log(data);
     this.http
-      .post<Department>('http://localhost:5600/Students/edit/' + id, data)
+      .post<Department>('http://localhost:5600/Departments/edit/' + id, data)
       .subscribe((a) => {
         console.log(a);
         this.router.navigateByUrl('/department');
@@ -42,6 +43,12 @@ export class DepartmentService {
       .subscribe(() => {
         console.log('Operation Successfully');
       });
+  }
+
+  getDepartment(id: number) {
+    return this.http.get<Department>(
+      'http://localhost:5600/Departments/details/' + id
+    );
   }
 
   constructor(private http: HttpClient, private router: Router) {}

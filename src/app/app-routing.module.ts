@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AddDepartmentComponent } from './add-department/add-department.component';
 import { AddStudentComponent } from './add-student/add-student.component';
 import { DepartmentComponent } from './department/department.component';
+import { EditDepartmentComponent } from './edit-department/edit-department.component';
 import { EditStudentComponent } from './edit-student/edit-student.component';
 import { HomeComponent } from './home/home.component';
 import { StudentDetailsComponent } from './student-details/student-details.component';
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'students/details/:id', component: StudentDetailsComponent },
   { path: 'department', component: DepartmentComponent },
   { path: 'department/add', component: AddDepartmentComponent },
+  { path: 'department/edit/:id', component: EditDepartmentComponent },
 ];
 
 @NgModule({
