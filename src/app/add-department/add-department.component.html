@@ -10,25 +10,19 @@
                     <!-- Nested Row within Card Body -->
                     <div class="row">
                         <div id="showInfoSection"
-                            class="col-lg-6 d-none d-lg-block align-content-center text-center p-3">
-                            <img src="../../assets/undraw_profile_2.svg" class="img-fluid
-                                ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|} mb-2"
-                                alt="" width="100" height="100">
+                            class="col-lg-6 d-none d-lg-block shadow-lg align-content-center text-center p-3">
+                            <img src="../../assets/department.png" class="
+                              mb-4" alt="" width="100" height="100">
                             <div>
                                 <table class="table" style="color:#f7f7f7">
                                     <tbody>
                                         <tr>
-                                            <td>ID</td>
-                                            <td>{{student._id||'##'}}</td>
-
+                                            <td>Department ID</td>
+                                            <td>{{newDepartment._id || '------'}}</td>
                                         </tr>
                                         <tr>
-                                            <td>Name</td>
-                                            <td>{{ student.Name||'#######'}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Email</td>
-                                            <td>{{ student.Email||'#######'}}</td>
+                                            <td>Department Name</td>
+                                            <td>{{newDepartment.Name || '------------'}}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -40,16 +34,15 @@
                             </a>
                             <div class="p-5">
                                 <div class="text-center">
-                                    <h1 class="h3 mb-4">Update Form</h1>
+                                    <h1 class="h3 mb-4">Add Form</h1>
                                 </div>
                                 <div class="form">
-                                    <input type="text" [(ngModel)]="student.Name" class="form-control"
-                                        placeholder="Student Name" required>
-                                    <input type="text" [(ngModel)]="student.Email" class="form-control"
-                                        placeholder="Student Email" required>
-
-                                    <a class="btn btn-info btn-user btn-block" (click)="updateStudnet()">
-                                        Update Student
+                                    <input type="text" [(ngModel)]="newDepartment._id" class="form-control"
+                                        placeholder="Department ID" required>
+                                    <input type="text" [(ngModel)]="newDepartment.Name" class="form-control"
+                                        placeholder="Department Name" required>
+                                    <a class="btn btn-success btn-user btn-block" (click)="addDepartment()">
+                                        Add New Department
                                     </a>
                                 </div>
                             </div>

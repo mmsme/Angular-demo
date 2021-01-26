@@ -14,7 +14,6 @@ export class AddStudentComponent implements OnInit {
   ngOnInit(): void {}
 
   addStudnet(): void {
-    console.log(this.newStudnet);
     if (
       this.newStudnet._id == 0 ||
       this.newStudnet.Name == '' ||

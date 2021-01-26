@@ -18,7 +18,7 @@ export class StudentService {
       .post<Student>('http://localhost:5600/Students/add', studnet)
       .subscribe(
         (success) => {
-          alert('Operation Seccussfully');
+          console.log('Operation Seccussfully');
           this.router.navigate(['/students']);
         },
         (error) => {
