@@ -13,6 +13,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AddStudentComponent } from './add-student/add-student.component';
 import { EditStudentComponent } from './edit-student/edit-student.component';
 import { StudentDetailsComponent } from './student-details/student-details.component';
+import { DepartmentComponent } from './department/department.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { StudentDetailsComponent } from './student-details/student-details.compo
     AddStudentComponent,
     EditStudentComponent,
     StudentDetailsComponent,
+    DepartmentComponent,
   ],
   imports: [
     BrowserModule,

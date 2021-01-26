@@ -17,4 +17,5 @@ input {
 #showInfoSection:hover {
   background-color: #23f346;
   transform: scale(1.1) rotate(15deg);
+  border-radius: 5em;
 }
