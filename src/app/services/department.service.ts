@@ -14,15 +14,16 @@ export class DepartmentService {
   }
 
   addDepartment(department: Department) {
-    return this.http
+    this.http
       .post<Department>('http://localhost:5600/Departments/add', department)
       .subscribe(
         (success) => {
-          console.log('Operation Seccussfully');
+          console.log('Operation Seccussfully', success);
           this.router.navigate(['/department']);
         },
         (error) => {
-          alert('Error');
+          console.log('Error:', error);
+          alert('Failed');
         }
       );
   }

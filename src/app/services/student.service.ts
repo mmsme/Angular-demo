@@ -14,15 +14,16 @@ export class StudentService {
   }
 
   addStudnet(studnet: Student) {
-    return this.http
+    this.http
       .post<Student>('http://localhost:5600/Students/add', studnet)
       .subscribe(
         (success) => {
-          console.log('Operation Seccussfully');
+          console.log('Operation Seccussfully:', success);
           this.router.navigate(['/students']);
         },
         (error) => {
-          alert('Error');
+          console.log('Error:', error);
+          alert('Failed');
         }
       );
   }

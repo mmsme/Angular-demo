@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AddCourseComponent } from './add-course/add-course.component';
 import { AddDepartmentComponent } from './add-department/add-department.component';
 import { AddStudentComponent } from './add-student/add-student.component';
 import { CourseComponent } from './course/course.component';
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'department/add', component: AddDepartmentComponent },
   { path: 'department/edit/:id', component: EditDepartmentComponent },
   { path: 'course', component: CourseComponent },
+  { path: 'course/add', component: AddCourseComponent },
 ];
 
 @NgModule({

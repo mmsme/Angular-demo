@@ -1,0 +1,66 @@
+<div class="container">
+
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
+
+        <div class="col-xl-10 col-lg-12 col-md-9">
+            <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body p-0">
+
+                    <!-- Nested Row within Card Body -->
+                    <div class="row">
+                        <div id="showInfoSection"
+                            class="col-lg-6 d-none d-lg-block align-content-center text-center p-3">
+                            <img src="../../assets/iconfinder_Know_1562699.png" class="img-fluid
+                                rounded-circle shadow-lg mb-4" alt="" width="100" height="100">
+                            <div>
+                                <table class="table" style="color:#f7f7f7">
+                                    <tbody>
+                                        <tr>
+                                            <td>Course ID</td>
+                                            <td>{{ newCourse._id || '##'}}</td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>Course Name</td>
+                                            <td>{{ newCourse.Name || '#######'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Course Instructor</td>
+                                            <td>{{newCourse.Instructor || '#######'}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <a type="button" class="close mr-3 mt-2" href="/course">
+                                &times;
+                            </a>
+                            <div class="p-5">
+                                <div class="text-center">
+                                    <h1 class="h3 mb-4">Add Form</h1>
+                                </div>
+                                <div class="form">
+                                    <input type="text" [(ngModel)]="newCourse._id" class="form-control"
+                                        placeholder="Course ID" required>
+                                    <input type="text" [(ngModel)]="newCourse.Name" class="form-control"
+                                        placeholder="Course Name" required>
+                                    <input type="text" [(ngModel)]="newCourse.Instructor" class="form-control"
+                                        placeholder="Course Instructor" required>
+
+                                    <a class="btn btn-success btn-user btn-block" (click)="addNewCourse()">
+                                        Add New Course
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
