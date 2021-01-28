@@ -38,10 +38,12 @@
                         }">
                             <td>{{item._id}}</td>
                             <td>{{item.Name}}</td>
-                            <td class="text-right">
+                            <td class="d-flex justify-content-end">
+                                <button type="button" routerLink="#"
+                                    class="btn btn-warning flex-sm-shrink-1 mr-2">Details</button>
                                 <button type="button" routerLink="{{'/department/edit/'+item._id}}"
-                                    class="btn btn-info mr-2">Update</button>
-                                <button type="button" class="btn btn-danger" data-toggle="modal"
+                                    class="btn btn-info flex-sm-shrink-1 mr-2">Update</button>
+                                <button type="button" class="btn btn-danger flex-sm-shrink-1" data-toggle="modal"
                                     (click)="department = item" data-target="#modelId">Delete</button>
                             </td>
                         </tr>

@@ -1,0 +1,20 @@
+.h2 {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  text-shadow: 1.5px 1.5px 2px #fff;
+}
+
+.table {
+  font-size: 2ex;
+  transition: all 1s;
+}
+
+#small-card {
+  background-color: #16c79a;
+  transition: all 1s;
+}
+
+#small-card:hover {
+  transform: scale(0.9);
+  background-color: #374045;
+}

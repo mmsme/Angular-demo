@@ -26,5 +26,8 @@ export class CourseService {
       );
   }
 
+  getCourseById(id: number) {
+    return this.http.get<Course>('http://localhost:5600/Courses/details/' + id);
+  }
   constructor(private http: HttpClient, private router: Router) {}
 }

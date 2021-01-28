@@ -18,6 +18,8 @@ import { AddDepartmentComponent } from './add-department/add-department.componen
 import { EditDepartmentComponent } from './edit-department/edit-department.component';
 import { CourseComponent } from './course/course.component';
 import { AddCourseComponent } from './add-course/add-course.component';
+import { CourseDetailsComponent } from './course-details/course-details.component';
+import { EnrollStudentComponent } from './enroll-student/enroll-student.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { AddCourseComponent } from './add-course/add-course.component';
     EditDepartmentComponent,
     CourseComponent,
     AddCourseComponent,
+    CourseDetailsComponent,
+    EnrollStudentComponent,
   ],
   imports: [
     BrowserModule,

@@ -44,10 +44,14 @@
                             <td>{{item.Name}}</td>
                             <td>{{item.Instructor}}</td>
                             <td>{{item.list.length}}</td>
-                            <td class="text-right">
-                                <button type="button" routerLink="" class="btn btn-warning mr-2">Details</button>
-                                <button type="button" routerLink="" class="btn btn-info mr-2">Update</button>
-                                <button type="button" class="btn btn-danger" data-toggle="modal"
+                            <td class="d-flex justify-content-end">
+                                <button routerLink="/course/enroll/{{item._id}}"
+                                    class="btn btn-success flex-sm-shrink-1 mr-2">Enroll</button>
+                                <button type="button" routerLink="/course/details/{{item._id}}"
+                                    class="btn btn-warning flex-sm-shrink-1 mr-2">Details</button>
+                                <button type="button" routerLink=""
+                                    class="btn btn-info flex-sm-shrink-1 mr-2">Update</button>
+                                <button type="button" class="btn btn-danger flex-sm-shrink-1" data-toggle="modal"
                                     data-target="#modelId">Delete</button>
                             </td>
                         </tr>
