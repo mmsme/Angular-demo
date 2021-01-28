@@ -1,12 +1,13 @@
 <div class="container">
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Department List</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Courses List</h6>
         </div>
         <div class="card-body">
             <div class="mb-2">
-                <a name="addStudnet" id="addStudnet" class="btn btn-success" routerLink="/department/add"
-                    role="button">Add Department</a>
+                <a name="addStudnet" id="addStudnet" class="btn btn-success" routerLink="/students/add"
+                    role="button">Add
+                    Course</a>
                 <select class="form-control-sm float-right" [(ngModel)]="itemsCount">
                     <option>5</option>
                     <option>10</option>
@@ -14,11 +15,13 @@
                 </select>
             </div>
             <div class="table-responsive">
-                <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
+                <table class="table" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
+                            <th>Instructor</th>
+                            <th>Studnets</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -26,23 +29,27 @@
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
+                            <th>Instructor</th>
+                            <th>Studnets</th>
                             <th></th>
                         </tr>
                     </tfoot>
                     <tbody>
-                        <tr *ngFor="let item of departmentList | paginate : {
+                        <tr *ngFor="let item of coursesList | paginate : {
                             id: 'myList',
                             itemsPerPage: itemsCount,
                             currentPage: p,
-                            totalItems: departmentList.length
+                            totalItems: coursesList.length
                         }">
                             <td>{{item._id}}</td>
                             <td>{{item.Name}}</td>
+                            <td>{{item.Instructor}}</td>
+                            <td>{{item.list.length}}</td>
                             <td class="text-right">
-                                <button type="button" routerLink="{{'/department/edit/'+item._id}}"
-                                    class="btn btn-info mr-2">Update</button>
+                                <button type="button" routerLink="" class="btn btn-warning mr-2">Details</button>
+                                <button type="button" routerLink="" class="btn btn-info mr-2">Update</button>
                                 <button type="button" class="btn btn-danger" data-toggle="modal"
-                                    (click)="department = item" data-target="#modelId">Delete</button>
+                                    data-target="#modelId">Delete</button>
                             </td>
                         </tr>
                     </tbody>
@@ -60,17 +67,17 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Delete Confirmation</h5>
-                <button type="button" routerLink="/students" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" href="/course" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                Are You Sure about Deleting Department {{department.Name}}
+                Are You Sure about Deleting Student
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modelId"
-                    (click)="deleteDepartment(department)">Delete</button>
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modelId">Delete</button>
             </div>
         </div>
     </div>

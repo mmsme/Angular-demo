@@ -16,6 +16,7 @@ import { StudentDetailsComponent } from './student-details/student-details.compo
 import { DepartmentComponent } from './department/department.component';
 import { AddDepartmentComponent } from './add-department/add-department.component';
 import { EditDepartmentComponent } from './edit-department/edit-department.component';
+import { CourseComponent } from './course/course.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { EditDepartmentComponent } from './edit-department/edit-department.compo
     DepartmentComponent,
     AddDepartmentComponent,
     EditDepartmentComponent,
+    CourseComponent,
   ],
   imports: [
     BrowserModule,

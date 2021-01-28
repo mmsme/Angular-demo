@@ -9,7 +9,7 @@ import { DepartmentService } from '../services/department.service';
   styleUrls: ['./edit-department.component.css'],
 })
 export class EditDepartmentComponent implements OnInit {
-  department!: Department;
+  department: Department = new Department(0, '');
 
   constructor(
     private departmentService: DepartmentService,

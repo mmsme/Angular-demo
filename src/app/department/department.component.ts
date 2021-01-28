@@ -11,6 +11,7 @@ export class DepartmentComponent implements OnInit {
   departmentList: Department[] = [];
   p!: number;
   itemsCount: number = 5;
+  department: Department = new Department(0, '');
 
   constructor(private departmentService: DepartmentService) {}
 
@@ -24,5 +25,9 @@ export class DepartmentComponent implements OnInit {
       () => {
         console.log('Complete ya 3asel');
       };
+  }
+
+  deleteDepartment(department: Department): void {
+    this.departmentService.deleteByID(department._id);
   }
 }

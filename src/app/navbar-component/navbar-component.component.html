@@ -8,6 +8,10 @@
         align-items: center;
     }
 
+    .myActive {
+        background-color: tomato;
+    }
+
 </style>
 
 
@@ -16,7 +20,7 @@
     <div class="container">
 
 
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/home">
             <div class="logo">
                 <div>
                     <img src="../../assets/iti.png" class="img-fluid" width="40" height="40" alt="iti">
@@ -33,13 +37,13 @@
         <div class="collapse navbar-collapse pr-2" id="tex">
             <ul class="navbar-nav ml-auto">
                 <li routerLinkActive="active">
-                    <a class="nav-link waves-effect waves-light " routerLink="/home">Home</a>
+                    <a class="nav-link waves-effect waves-light" routerLink="/department">Departments</a>
                 </li>
                 <li routerLinkActive="active">
-                    <a class="nav-link waves-effect waves-light" routerLink="/department">Department</a>
+                    <a class="nav-link waves-effect waves-light " routerLink="/course">Courses</a>
                 </li>
                 <li routerLinkActive="active">
-                    <a class="nav-link waves-effect waves-light" routerLink="/students">Studnet</a>
+                    <a class="nav-link waves-effect waves-light" routerLink="/students">Studnets</a>
                 </li>
             </ul>
         </div>
