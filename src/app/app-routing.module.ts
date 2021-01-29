@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { StudentDetailsComponent } from './student-details/student-details.component';
 import { StudentComponent } from './student/student.component';
 import { EnrollStudentComponent } from './enroll-student/enroll-student.component';
+import { UpdateCourseComponent } from './update-course/update-course.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -26,6 +27,8 @@ const routes: Routes = [
   { path: 'course/add', component: AddCourseComponent },
   { path: 'course/details/:id', component: CourseDetailsComponent },
   { path: 'course/enroll/:id', component: EnrollStudentComponent },
+  { path: 'course/update/:id', component: UpdateCourseComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 
 @NgModule({

@@ -43,6 +43,7 @@ export class DepartmentService {
       .get('http://localhost:5600/Departments/delete/' + id)
       .subscribe(() => {
         console.log('Operation Successfully');
+        window.location.reload();
       });
   }
 

@@ -1,0 +1,119 @@
+<div class="container mt-5">
+    <div class="card shadow">
+        <button type="button" routerLink="/course" class="close d-flex justify-content-end mt-1 mr-2">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="card-body">
+            <!-- Nested Row within Card Body -->
+            <div class="row  pl-3">
+                <div id="showInfoSection"
+                    class="col-lg-6 d-none d-lg-block align-content-center rounded text-center p-3">
+                    <img src="../../assets/undraw_profile_2.svg" class="rounded-circle mb-2" alt="" width="100"
+                        height="100">
+                    <div>
+                        <table class="table" style="color:#f7f7f7">
+                            <tbody>
+                                <tr>
+                                    <td>ID</td>
+                                    <td>{{selectedCourse._id||'##'}}</td>
+
+                                </tr>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>{{ selectedCourse.Name||'#######'}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Email</td>
+                                    <td>{{ selectedCourse.Instructor||'#######'}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+
+                    <div class="p-5">
+                        <div class="text-center">
+                            <h1 class="h3 mb-4">Update Form</h1>
+                        </div>
+                        <div class="form">
+                            <input type="text" [(ngModel)]="selectedCourse.Name" class="form-control"
+                                placeholder="Student Name" required>
+                            <input type="text" [(ngModel)]="selectedCourse.Instructor" class="form-control"
+                                placeholder="Student Email" required>
+
+                            <a class="btn btn-info btn-user btn-block" (click)="updateCourse()">
+                                Update Course
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="badge-dark p-2 rounded text-left mt-3">Students</p>
+
+            <div class="table-responsive">
+                <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th></th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <tr *ngFor="let item of students | paginate : {
+                                        id: 'myList',
+                                        itemsPerPage: itemsCount,
+                                        currentPage: p,
+                                        totalItems: students.length
+                                    }">
+                            <td>{{item.id._id}}</td>
+                            <td>{{item.id.Name}}</td>
+                            <td>{{item.id.Email}}</td>
+                            <td class="d-flex justify-content-end">
+                                <button type="button" class="btn btn-danger flex-sm-shrink-1 mr-2" data-toggle="modal"
+                                    data-target="#modelId" (click)="student=item.id">Unenroll</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <pagination-controls class="float-left" id="myList" (pageChange)="p = $event"
+                    (pageBoundsCorrection)="p=$event">
+                </pagination-controls>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Unenroll Confirmation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to unenroll Student;
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" data-dismiss="modal" class="btn btn-danger"
+                    (click)="unenrollStudent(student._id)">Unenroll</button>
+            </div>
+        </div>
+    </div>
+</div>

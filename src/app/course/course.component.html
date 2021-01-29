@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-4">
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Courses List</h6>
@@ -20,7 +20,7 @@
                             <th>ID</th>
                             <th>Name</th>
                             <th>Instructor</th>
-                            <th>Studnets</th>
+                            <th>No.Studnets</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -29,7 +29,7 @@
                             <th>ID</th>
                             <th>Name</th>
                             <th>Instructor</th>
-                            <th>Studnets</th>
+                            <th>No.Studnets</th>
                             <th></th>
                         </tr>
                     </tfoot>
@@ -49,10 +49,10 @@
                                     class="btn btn-success flex-sm-shrink-1 mr-2">Enroll</button>
                                 <button type="button" routerLink="/course/details/{{item._id}}"
                                     class="btn btn-warning flex-sm-shrink-1 mr-2">Details</button>
-                                <button type="button" routerLink=""
+                                <button type="button" routerLink="/course/update/{{item._id}}"
                                     class="btn btn-info flex-sm-shrink-1 mr-2">Update</button>
                                 <button type="button" class="btn btn-danger flex-sm-shrink-1" data-toggle="modal"
-                                    data-target="#modelId">Delete</button>
+                                    data-target="#modelId" (click)="selectedCourse = item">Delete</button>
                             </td>
                         </tr>
                     </tbody>
@@ -75,12 +75,13 @@
                 </button>
             </div>
             <div class="modal-body">
-                Are You Sure about Deleting Student
-
+                Are you sure you want to <br>
+                Delete {{selectedCourse.Name}} Course
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modelId">Delete</button>
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modelId"
+                    (click)="deleteCourse(selectedCourse._id)">Delete</button>
             </div>
         </div>
     </div>

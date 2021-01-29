@@ -47,5 +47,50 @@ export class CourseService {
         }
       );
   }
+
+  addStudentInCourse(courseId: number, studentId: number) {
+    this.http
+      .post('http://localhost:5600/Courses/addStudent/' + courseId, {
+        id: studentId,
+      })
+      .subscribe(
+        (success) => {
+          console.log(success);
+          alert('success');
+        },
+        (error) => {
+          console.log(error);
+          alert('faild');
+        }
+      );
+  }
+
+  updateCourse(id: number, course: Course) {
+    this.http
+      .patch<Course>('http://localhost:5600/Courses/edit/' + id, course)
+      .subscribe(
+        (seccuss) => {
+          console.log(seccuss);
+          this.router.navigateByUrl('/course/details/' + id);
+        },
+        (error) => {
+          console.log(error);
+          alert('faild');
+        }
+      );
+  }
+
+  deleteCourse(id: number) {
+    this.http.delete('http://localhost:5600/Courses/delete/' + id).subscribe(
+      (success) => {
+        console.log('Operation Successfully', success);
+        window.location.reload();
+      },
+      (error) => {
+        console.log(error);
+        alert('Failed');
+      }
+    );
+  }
   constructor(private http: HttpClient, private router: Router) {}
 }

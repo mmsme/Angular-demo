@@ -11,6 +11,7 @@ export class CourseComponent implements OnInit {
   coursesList: Course[] = [];
   p!: number;
   itemsCount: number = 5;
+  selectedCourse: Course = new Course(0, '', '', []);
 
   constructor(private courseService: CourseService) {}
 
@@ -25,5 +26,9 @@ export class CourseComponent implements OnInit {
       () => {
         console.log('Complete ya 3asel');
       };
+  }
+
+  deleteCourse(id: number) {
+    this.courseService.deleteCourse(id);
   }
 }

@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap");
+
+@keyframes section1Animation {
+  0% {
+    background-color: #28abb9;
+  }
+  25% {
+    background-color: #19d3da;
+  }
+  50% {
+    background-color: #28df99;
+  }
+  75% {
+    background-color: #16c79a;
+  }
+  100% {
+    background-color: #28abb9;
+  }
+}
+
+.section-1 {
+  transition: all 4s;
+  animation: section1Animation;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+.h1 {
+  color: #f6f5f5;
+  font-family: "Cairo", sans-serif;
+  font-size: 3em;
+  margin-bottom: 1ex;
+}

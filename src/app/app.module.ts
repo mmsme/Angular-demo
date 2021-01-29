@@ -20,6 +20,7 @@ import { CourseComponent } from './course/course.component';
 import { AddCourseComponent } from './add-course/add-course.component';
 import { CourseDetailsComponent } from './course-details/course-details.component';
 import { EnrollStudentComponent } from './enroll-student/enroll-student.component';
+import { UpdateCourseComponent } from './update-course/update-course.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { EnrollStudentComponent } from './enroll-student/enroll-student.componen
     AddCourseComponent,
     CourseDetailsComponent,
     EnrollStudentComponent,
+    UpdateCourseComponent,
   ],
   imports: [
     BrowserModule,

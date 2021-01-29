@@ -10,12 +10,10 @@ input {
 }
 
 #showInfoSection {
-  background-color: #008891;
+  background-color: #00d1ae;
   transition: all 2s;
 }
 
-#showInfoSection:hover {
-  background-color: #16c79a;
-  transform: scale(1.1) rotate(15deg);
-  border-radius: 4em;
+.close {
+  outline: none;
 }
