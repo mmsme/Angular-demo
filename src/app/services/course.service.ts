@@ -29,5 +29,23 @@ export class CourseService {
   getCourseById(id: number) {
     return this.http.get<Course>('http://localhost:5600/Courses/details/' + id);
   }
+
+  deleteStudentFromCourse(courseId: number, studentId: number) {
+    console.log(studentId);
+    this.http
+      .post('http://localhost:5600/Courses/removeStudent/' + courseId, {
+        id: studentId,
+      })
+      .subscribe(
+        (success) => {
+          console.log(success);
+          window.location.reload();
+        },
+        (error) => {
+          console.log(error);
+          alert('faild');
+        }
+      );
+  }
   constructor(private http: HttpClient, private router: Router) {}
 }

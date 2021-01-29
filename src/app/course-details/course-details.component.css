@@ -18,3 +18,15 @@
   transform: scale(0.9);
   background-color: #374045;
 }
+
+.info-img {
+  transition: all 1s;
+}
+
+.info-img:hover {
+  transform: scale(1.1) rotate(20deg);
+}
+
+.close {
+  outline: none;
+}

@@ -44,11 +44,16 @@ export class StudentService {
   }
 
   deleteByID(id: number) {
-    this.http
-      .get('http://localhost:5600/Students/delete/' + id)
-      .subscribe(() => {
-        console.log('Operation Successfully');
-      });
+    this.http.get('http://localhost:5600/Students/delete/' + id).subscribe(
+      (success) => {
+        console.log('Operation Successfully', success);
+        window.location.reload();
+      },
+      (error) => {
+        console.log(error);
+        alert('Failed');
+      }
+    );
   }
 
   constructor(private http: HttpClient, private router: Router) {}

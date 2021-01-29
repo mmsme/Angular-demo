@@ -1,11 +1,14 @@
-<div class="container mt-5 col-12 offset-sm-1 col-sm-10 offset-md-3 col-md-6">
+<div class="container mt-5">
     <div class="card shadow">
-        <img src="../../assets/iconfinder_Know_1562699.png" width="150" height="150"
-            class="align-self-center shadow card-top-img rounded-circle" style="margin-top: -2.5em;">
+        <button type="button" class="close d-flex justify-content-end mt-1 mr-2" routerLink="/course">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <img id="info-img" src="../../assets/iconfinder_Know_1562699.png" width="150" height="150"
+            class="align-self-center shadow card-top-img rounded-circle info-img" style="margin-top: -2.5em;">
         <div class="card-body text-center">
             <span class="h2">{{selectedCourse.Name}}</span>
             <p class="mt-3">Course</p>
-            <div id="small-card" class="offset-1 rounded col-10 shadow p-2">
+            <div id="small-card" class=" rounded  shadow p-2">
                 <table class="table table-borderless text-white">
                     <tbody>
                         <tr>
@@ -23,8 +26,71 @@
                     </tbody>
                 </table>
             </div>
-            <button routerLink="/course" type="button" class="col-10 col-sm-10 btn text-white mt-4"
-                style="background-color: #222831">Close</button>
+
+            <p class="badge-dark p-2 rounded text-left mt-3">Students</p>
+
+            <div class="table-responsive">
+                <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th></th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <tr *ngFor="let item of selectedCourse.list | paginate : {
+                                        id: 'myList',
+                                        itemsPerPage: itemsCount,
+                                        currentPage: p,
+                                        totalItems: selectedCourse.list.length
+                                    }">
+                            <td>{{item.id._id}}</td>
+                            <td>{{item.id.Name}}</td>
+                            <td>{{item.id.Email}}</td>
+                            <td class="d-flex justify-content-end">
+                                <button type="button" class="btn btn-danger flex-sm-shrink-1 mr-2" data-toggle="modal"
+                                    data-target="#modelId" (click)="student=item.id;print(student)">Unenroll</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <pagination-controls class="float-left" id="myList" (pageChange)="p = $event"
+                    (pageBoundsCorrection)="p=$event">
+                </pagination-controls>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Unenroll Confirmation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to unenroll Student;
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" data-dismiss="modal" class="btn btn-danger"
+                    (click)="unenrollStudent(student._id)">Unenroll</button>
+            </div>
         </div>
     </div>
 </div>
