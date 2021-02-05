@@ -12,7 +12,7 @@ import { CourseService } from '../services/course.service';
 export class UpdateCourseComponent implements OnInit {
   public selectedCourse: Course = new Course(0, '', '', []);
   p!: number;
-  itemsCount: number = 5;
+  itemsCount = 5;
   public students!: any;
   public student!: Student;
 
@@ -22,19 +22,21 @@ export class UpdateCourseComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // tslint:disable-next-line: deprecation
     this.ar.params.subscribe((url) => {
-      this.courseService.getCourseById(url['id']).subscribe((course) => {
+      // tslint:disable-next-line: deprecation
+      this.courseService.getCourseById(url.id).subscribe((course: Course) => {
         this.selectedCourse = course;
         this.students = course.list;
       });
     });
   }
 
-  unenrollStudent(id: number) {
+  unenrollStudent(id: number): void {
     this.courseService.deleteStudentFromCourse(this.selectedCourse._id, id);
   }
 
-  updateCourse() {
+  updateCourse(): void {
     this.courseService.updateCourse(
       this.selectedCourse._id,
       this.selectedCourse

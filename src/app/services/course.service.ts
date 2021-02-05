@@ -11,11 +11,12 @@ export class CourseService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  getAllCourses() {
+  getAllCourses(): any {
     return this.http.get<Course[]>(this.url + 'Courses/list');
   }
 
-  addCourse(course: Course) {
+  addCourse(course: Course): any {
+    // tslint:disable-next-line: deprecation
     return this.http.post<Course>(this.url + 'Courses/add', course).subscribe(
       (success) => {
         console.log('Operation Seccussfully', success);
@@ -28,16 +29,17 @@ export class CourseService {
     );
   }
 
-  getCourseById(id: number) {
+  getCourseById(id: number): any {
     return this.http.get<Course>(this.url + 'Courses/details/' + id);
   }
 
-  deleteStudentFromCourse(courseId: number, studentId: number) {
+  deleteStudentFromCourse(courseId: number, studentId: number): any {
     console.log(studentId);
     this.http
       .post(this.url + 'Courses/removeStudent/' + courseId, {
         id: studentId,
       })
+      // tslint:disable-next-line: deprecation
       .subscribe(
         (success) => {
           console.log(success);
@@ -56,6 +58,7 @@ export class CourseService {
       .post(this.url + 'Courses/addStudent/' + courseId, {
         id: studentId,
       })
+      // tslint:disable-next-line: deprecation
       .subscribe(
         (success) => {
           console.log(success);
@@ -68,9 +71,10 @@ export class CourseService {
       );
   }
 
-  updateCourse(id: number, course: Course) {
+  updateCourse(id: number, course: Course): any {
     this.http
       .patch<Course>('http://localhost:5600/Courses/edit/' + id, course)
+      // tslint:disable-next-line: deprecation
       .subscribe(
         (seccuss) => {
           console.log(seccuss);
@@ -83,7 +87,8 @@ export class CourseService {
       );
   }
 
-  deleteCourse(id: number) {
+  deleteCourse(id: number): any {
+    // tslint:disable-next-line: deprecation
     this.http.delete(this.url + 'Courses/delete/' + id).subscribe(
       (success) => {
         console.log('Operation Successfully', success);

@@ -17,15 +17,16 @@ export class EditStudentComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // tslint:disable-next-line: deprecation
     this.ar.params.subscribe((url) => {
-      this.studentService.getStudent(url['id']).subscribe((student) => {
+      this.studentService.getStudent(url.id).subscribe((student: Student) => {
         this.student = student;
         console.log(this.student);
       });
     });
   }
 
-  updateStudnet() {
+  updateStudnet(): void {
     this.studentService.updateStudnet(this.student._id, this.student);
   }
 }

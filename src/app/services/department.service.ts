@@ -11,13 +11,14 @@ export class DepartmentService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  getAllDepartment() {
+  getAllDepartment(): any {
     return this.http.get<Department[]>(this.url + 'Departments/list');
   }
 
-  addDepartment(department: Department) {
+  addDepartment(department: Department): any {
     this.http
       .post<Department>(this.url + 'Departments/add', department)
+      // tslint:disable-next-line: deprecation
       .subscribe(
         (success) => {
           console.log('Operation Seccussfully', success);
@@ -30,24 +31,26 @@ export class DepartmentService {
       );
   }
 
-  updateDepartment(id: number, data: any) {
+  updateDepartment(id: number, data: any): any {
     console.log(data);
     this.http
       .post<Department>(this.url + 'Departments/edit/' + id, data)
+      // tslint:disable-next-line: deprecation
       .subscribe((a) => {
         console.log(a);
         this.router.navigateByUrl('/department');
       });
   }
 
-  deleteByID(id: number) {
+  deleteByID(id: number): any {
+    // tslint:disable-next-line: deprecation
     this.http.get(this.url + 'Departments/delete/' + id).subscribe(() => {
       console.log('Operation Successfully');
       window.location.reload();
     });
   }
 
-  getDepartment(id: number) {
+  getDepartment(id: number): any {
     return this.http.get<Department>(this.url + 'Departments/details/' + id);
   }
 }

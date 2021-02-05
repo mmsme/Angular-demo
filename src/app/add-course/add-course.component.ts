@@ -14,11 +14,11 @@ export class AddCourseComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  addNewCourse() {
+  addNewCourse(): void {
     if (
-      this.newCourse._id == 0 ||
-      this.newCourse.Name == '' ||
-      this.newCourse.Instructor == ''
+      this.newCourse._id === 0 ||
+      this.newCourse.Name === '' ||
+      this.newCourse.Instructor === ''
     ) {
       alert('Please Enter Data');
     } else {

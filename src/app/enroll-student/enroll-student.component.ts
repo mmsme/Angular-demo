@@ -11,7 +11,7 @@ import { CourseService } from '../services/course.service';
 export class EnrollStudentComponent implements OnInit {
   public selectedCourse: Course = new Course(0, '', '', []);
   p!: number;
-  itemsCount: number = 5;
+  itemsCount = 5;
   public student = 0;
 
   constructor(
@@ -20,15 +20,16 @@ export class EnrollStudentComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // tslint:disable-next-line: deprecation
     this.ar.params.subscribe((url) => {
-      this.courseService.getCourseById(url['id']).subscribe((course) => {
+      this.courseService.getCourseById(url.id).subscribe((course: Course) => {
         this.selectedCourse = course;
       });
     });
   }
 
-  enrollStudent(id: number) {
-    if (id != 0) {
+  enrollStudent(id: number): void {
+    if (id !== 0) {
       this.courseService.addStudentInCourse(this.selectedCourse._id, id);
       return;
     }

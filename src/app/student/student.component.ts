@@ -12,22 +12,14 @@ export class StudentComponent implements OnInit {
   studentList: Student[] = [];
   p!: number;
   selectedStudent: Student = new Student(0, '', '');
-  itemsCount: number = 5;
+  itemsCount = 5;
 
   constructor(private studentService: StudentService) {}
 
   ngOnInit(): void {
-    this.studentService.getAllStudents().subscribe(
-      (data) => {
-        this.studentList = data;
-      },
-      (e) => {
-        console.log('Falied To Get Data');
-      },
-      () => {
-        console.log('Complete ya 3asel');
-      }
-    );
+    this.studentService.getAllStudents().subscribe((data: Student[]) => {
+      this.studentList = data;
+    });
   }
 
   deleteStudent(student: Student): void {

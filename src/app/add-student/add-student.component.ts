@@ -15,9 +15,9 @@ export class AddStudentComponent implements OnInit {
 
   addStudnet(): void {
     if (
-      this.newStudnet._id == 0 ||
-      this.newStudnet.Name == '' ||
-      this.newStudnet.Email == ''
+      this.newStudnet._id === 0 ||
+      this.newStudnet.Name === '' ||
+      this.newStudnet.Email === ''
     ) {
       alert('Please Enter Data');
     } else {

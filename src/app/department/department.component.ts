@@ -10,21 +10,15 @@ import { DepartmentService } from '../services/department.service';
 export class DepartmentComponent implements OnInit {
   departmentList: Department[] = [];
   p!: number;
-  itemsCount: number = 5;
+  itemsCount = 5;
   department: Department = new Department(0, '');
 
   constructor(private departmentService: DepartmentService) {}
 
   ngOnInit(): void {
-    this.departmentService.getAllDepartment().subscribe((d) => {
+    this.departmentService.getAllDepartment().subscribe((d: Department[]) => {
       this.departmentList = d;
-    }),
-      () => {
-        console.log('Falied To Get Data');
-      },
-      () => {
-        console.log('Complete ya 3asel');
-      };
+    });
   }
 
   deleteDepartment(department: Department): void {

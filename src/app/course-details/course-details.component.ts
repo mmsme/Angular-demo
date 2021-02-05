@@ -12,7 +12,7 @@ import { CourseService } from '../services/course.service';
 export class CourseDetailsComponent implements OnInit {
   public selectedCourse: Course = new Course(0, '', '', []);
   p!: number;
-  itemsCount: number = 5;
+  itemsCount = 5;
   public students!: any;
 
   constructor(
@@ -21,8 +21,9 @@ export class CourseDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // tslint:disable-next-line: deprecation
     this.ar.params.subscribe((url) => {
-      this.courseService.getCourseById(url['id']).subscribe((course) => {
+      this.courseService.getCourseById(url.id).subscribe((course: Course) => {
         this.selectedCourse = course;
         this.students = course.list;
       });

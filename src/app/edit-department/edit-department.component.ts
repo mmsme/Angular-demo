@@ -17,22 +17,23 @@ export class EditDepartmentComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // tslint:disable-next-line: deprecation
     this.ar.params.subscribe((url) => {
       let id;
-      id = url['id'];
+      id = url.id;
       this.departmentService.getDepartment(id).subscribe(
-        (department) => {
+        (department: Department) => {
           console.log(department);
           this.department = department;
         },
-        (err) => {
+        (err: any) => {
           console.error(err);
         }
       );
     });
   }
 
-  updateDepartment() {
+  updateDepartment(): void {
     this.departmentService.updateDepartment(
       this.department._id,
       this.department

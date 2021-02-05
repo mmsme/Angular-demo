@@ -14,8 +14,8 @@ export class AddDepartmentComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  addDepartment() {
-    if (this.newDepartment._id == 0 || this.newDepartment.Name == '') {
+  addDepartment(): void {
+    if (this.newDepartment._id === 0 || this.newDepartment.Name === '') {
       alert('Please Enter Valid Data');
     } else {
       this.departmentService.addDepartment(this.newDepartment);
@@ -23,7 +23,7 @@ export class AddDepartmentComponent implements OnInit {
     }
   }
 
-  resetData() {
+  resetData(): void {
     this.newDepartment._id = 0;
     this.newDepartment.Name = '';
   }

@@ -10,25 +10,19 @@ import { CourseService } from '../services/course.service';
 export class CourseComponent implements OnInit {
   coursesList: Course[] = [];
   p!: number;
-  itemsCount: number = 5;
+  itemsCount = 5;
   selectedCourse: Course = new Course(0, '', '', []);
 
   constructor(private courseService: CourseService) {}
 
   ngOnInit(): void {
-    this.courseService.getAllCourses().subscribe((data) => {
+    this.courseService.getAllCourses().subscribe((data: Course[]) => {
       this.coursesList = data;
       console.log(this.coursesList);
-    }),
-      () => {
-        console.log('Falied To Get Data');
-      },
-      () => {
-        console.log('Complete ya 3asel');
-      };
+    });
   }
 
-  deleteCourse(id: number) {
+  deleteCourse(id: number): void {
     this.courseService.deleteCourse(id);
   }
 }

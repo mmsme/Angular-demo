@@ -12,11 +12,12 @@ export class StudentService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  getAllStudents() {
+  getAllStudents(): any {
     return this.http.get<Student[]>(this.url + 'Students/list');
   }
 
-  addStudnet(studnet: Student) {
+  addStudnet(studnet: Student): any {
+    // tslint:disable-next-line: deprecation
     this.http.post<Student>(this.url + 'Students/add', studnet).subscribe(
       (success) => {
         console.log('Operation Seccussfully:', success);
@@ -29,20 +30,22 @@ export class StudentService {
     );
   }
 
-  getStudent(id: number) {
+  getStudent(id: number): any {
     return this.http.get<Student>(this.url + 'Students/details/' + id);
   }
 
-  updateStudnet(id: number, data: any) {
+  updateStudnet(id: number, data: any): any {
     this.http
       .post<Student>(this.url + 'Students/edit/' + id, data)
+      // tslint:disable-next-line: deprecation
       .subscribe((a) => {
         console.log(a);
         this.router.navigateByUrl('/students');
       });
   }
 
-  deleteByID(id: number) {
+  deleteByID(id: number): any {
+    // tslint:disable-next-line: deprecation
     this.http.get(this.url + 'Students/delete/' + id).subscribe(
       (success) => {
         console.log('Operation Successfully', success);

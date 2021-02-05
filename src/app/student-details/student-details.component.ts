@@ -16,14 +16,15 @@ export class StudentDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // tslint:disable-next-line: deprecation
     this.ar.params.subscribe((url) => {
       let id;
-      id = url['id'];
+      id = url.id;
       this.studentService.getStudent(id).subscribe(
-        (student) => {
+        (student: Student) => {
           this.student = student;
         },
-        (err) => {
+        (err: any) => {
           console.log(err);
         }
       );
