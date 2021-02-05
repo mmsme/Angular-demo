@@ -7,33 +7,35 @@ import { Course } from '../models/course';
   providedIn: 'root',
 })
 export class CourseService {
+  private url = 'https://m-iti.herokuapp.com/';
+
+  constructor(private http: HttpClient, private router: Router) {}
+
   getAllCourses() {
-    return this.http.get<Course[]>('http://localhost:5600/Courses/list');
+    return this.http.get<Course[]>(this.url + 'Courses/list');
   }
 
   addCourse(course: Course) {
-    return this.http
-      .post<Course>('http://localhost:5600/Courses/add', course)
-      .subscribe(
-        (success) => {
-          console.log('Operation Seccussfully', success);
-          this.router.navigate(['/course']);
-        },
-        (error) => {
-          console.log('Error:', error);
-          alert('Failed');
-        }
-      );
+    return this.http.post<Course>(this.url + 'Courses/add', course).subscribe(
+      (success) => {
+        console.log('Operation Seccussfully', success);
+        this.router.navigate(['/course']);
+      },
+      (error) => {
+        console.log('Error:', error);
+        alert('Failed');
+      }
+    );
   }
 
   getCourseById(id: number) {
-    return this.http.get<Course>('http://localhost:5600/Courses/details/' + id);
+    return this.http.get<Course>(this.url + 'Courses/details/' + id);
   }
 
   deleteStudentFromCourse(courseId: number, studentId: number) {
     console.log(studentId);
     this.http
-      .post('http://localhost:5600/Courses/removeStudent/' + courseId, {
+      .post(this.url + 'Courses/removeStudent/' + courseId, {
         id: studentId,
       })
       .subscribe(
@@ -48,9 +50,10 @@ export class CourseService {
       );
   }
 
+  // tslint:disable-next-line:typedef
   addStudentInCourse(courseId: number, studentId: number) {
     this.http
-      .post('http://localhost:5600/Courses/addStudent/' + courseId, {
+      .post(this.url + 'Courses/addStudent/' + courseId, {
         id: studentId,
       })
       .subscribe(
@@ -81,7 +84,7 @@ export class CourseService {
   }
 
   deleteCourse(id: number) {
-    this.http.delete('http://localhost:5600/Courses/delete/' + id).subscribe(
+    this.http.delete(this.url + 'Courses/delete/' + id).subscribe(
       (success) => {
         console.log('Operation Successfully', success);
         window.location.reload();
@@ -92,5 +95,4 @@ export class CourseService {
       }
     );
   }
-  constructor(private http: HttpClient, private router: Router) {}
 }

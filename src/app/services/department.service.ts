@@ -7,15 +7,17 @@ import { Department } from '../models/department';
   providedIn: 'root',
 })
 export class DepartmentService {
+  private url = 'https://m-iti.herokuapp.com/';
+
+  constructor(private http: HttpClient, private router: Router) {}
+
   getAllDepartment() {
-    return this.http.get<Department[]>(
-      'http://localhost:5600/Departments/list'
-    );
+    return this.http.get<Department[]>(this.url + 'Departments/list');
   }
 
   addDepartment(department: Department) {
     this.http
-      .post<Department>('http://localhost:5600/Departments/add', department)
+      .post<Department>(this.url + 'Departments/add', department)
       .subscribe(
         (success) => {
           console.log('Operation Seccussfully', success);
@@ -31,7 +33,7 @@ export class DepartmentService {
   updateDepartment(id: number, data: any) {
     console.log(data);
     this.http
-      .post<Department>('http://localhost:5600/Departments/edit/' + id, data)
+      .post<Department>(this.url + 'Departments/edit/' + id, data)
       .subscribe((a) => {
         console.log(a);
         this.router.navigateByUrl('/department');
@@ -39,19 +41,13 @@ export class DepartmentService {
   }
 
   deleteByID(id: number) {
-    this.http
-      .get('http://localhost:5600/Departments/delete/' + id)
-      .subscribe(() => {
-        console.log('Operation Successfully');
-        window.location.reload();
-      });
+    this.http.get(this.url + 'Departments/delete/' + id).subscribe(() => {
+      console.log('Operation Successfully');
+      window.location.reload();
+    });
   }
 
   getDepartment(id: number) {
-    return this.http.get<Department>(
-      'http://localhost:5600/Departments/details/' + id
-    );
+    return this.http.get<Department>(this.url + 'Departments/details/' + id);
   }
-
-  constructor(private http: HttpClient, private router: Router) {}
 }
